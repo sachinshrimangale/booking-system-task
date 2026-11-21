@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: booking-system
+
+  datasource:
+    url: jdbc:h2:file:./data/bookingdb;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+# Optional: Uncomment if you externalize demo credentials via properties instead of hardcoding in SecurityConfig
+# app:
+#   security:
+#     user:
+#       username: user
+#       password: password
+#     admin:
+#       username: admin
+#       password: password
+
+logging:
+  level:
+    root: INFO
+    com.booking: DEBUG
+    org.springframework.transaction: WARN
